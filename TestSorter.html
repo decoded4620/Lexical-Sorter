@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="Sorter.js"></script>
+<script>
+	s1			= ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+	  			   ];
+	s2			= ["acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
+	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc"];
+	s3 			= ["acb", "abc", "bca"];
+	s4			= ["aaa","aa",""];
+	
+	arbLexVals 	= ["zab","abc", "cba","a"];
+	sortVals 	= [s1,s2,s3,s4];
+
+	// radix sort on radix=16
+	console.log("===============================================================BEGIN");
+	for(var i = 0; i < arbLexVals.length; i++){
+		strings = sortVals[i];
+		console.log("Test: " + strings);
+		Sorter.RadixSorter.sortlex(strings, arbLexVals[i]);
+		console.log("---------------------------------------------------------------");
+		console.log("Strings are now: " + strings);
+		console.log("");
+	}
+	console.log("===============================================================BEGIN");
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
