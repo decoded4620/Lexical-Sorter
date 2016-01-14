@@ -4,71 +4,172 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script src="Sorter.js"></script>
+<script src="jquery.js"></script>
+<style>
+	body {background-color:lightgrey;border-color:darkgrey;}
+	p    {white-space:pre-line;word-break: break-all }
+	div  {max-width:100%; background-color:darkgrey; white-space:pre-line;}
+</style>
 <script>
-	s1			= ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			 "a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	  			"a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
-	  			   ];
-	s2			= ["acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			 "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc",
-	  			   "acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc","acacabcbacbbacb", "aabcabcaaabcabcbc", "baabcaabc"];
-	s3 			= ["acb", "abc", "bca"];
-	s4			= ["aaa","aa",""];
-	
-	arbLexVals 	= ["zab","abc", "cba","a"];
-	sortVals 	= [s1,s2,s3,s4];
+   
+    
+	(function($) {
+        $(function() {
+            
+            /**
+             * Used only to generate a random sort value (if no input is made)
+             */
+            
+            function generateSortValue(cnt, maxWordSize){
+                var alpha = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+                var s1 = [];
+                var aLen = alpha.length;
+                for(var i = 0; i < cnt; i++){
+                    s1[i] = "";
+                    
+                    var thisWordSize = Math.round(Math.random()* Math.pow(2,31))%maxWordSize + 1;
+                    for(var j = 0; j < thisWordSize; ++j){
+	                    var randSeed = (Math.round(Math.random() * Math.pow(2,32))) %aLen;
+                        s1[i] += alpha[randSeed]; 
+                    }
+                }
+                
+                return s1;
+            }
+            
+            /**
+             * Actually calls the sorter
+             */
+            function doSort(sortVals, arbLexVals){
 
-	// radix sort on radix=16
-	console.log("===============================================================BEGIN");
-	for(var i = 0; i < arbLexVals.length; i++){
-		strings = sortVals[i];
-		console.log("Test: " + strings);
-		Sorter.RadixSorter.sortlex(strings, arbLexVals[i]);
-		console.log("---------------------------------------------------------------");
-		console.log("Strings are now: " + strings);
-		console.log("");
-	}
-	console.log("===============================================================BEGIN");
-	
+                var html = "";
+                html += "<h1><pre>Lexicographic Radix Sort</pre></h1>";
+                
+                for(var i = 0; i < sortVals.length; ++i){
+                    html += "<section>"
+                    strings = sortVals[i];
+                    html += "<h1><pre>Test " + i + " Start</pre></h2>";
+                    html += "<div>";
+                    html += "<h2><pre>Sorting " + strings.length + " Strings by arbitrary sort order: " + arbLexVals[i] + "</pre></h2>";
+                    var str;
+                    if(strings.length > 10){
+                         str = strings.slice(0,10).join(", ") + "...";
+                    }
+                    else{
+                        str = strings.join(", ");
+                    }
+                    html += "<pre>" + str + "</pre>";
+                    html += "</div>";
+                    
+                    
+                    
+                    // SORT THE STRINGS HERE!
+                    var d = new Date();
+                    var s = d.getTime();
+                    Sorter.RadixSorter.sortlex(strings, arbLexVals[i]);
+                    
+                    d = new Date();
+                    var e = d.getTime();
+                    var totMs = (e-s);
+                    // END SORT
+                    
+                    
+                    
+                    html += "<h3><pre>Result Sort Order</pre></h3>";
+                    html += "<p><pre>completed in : " + totMs + " ms</pre></p>"
+                    html += "<ul>";
+                    html += "<li>Lower Bound <b><pre>O(Nlog(N)+N) = " + Math.round(Math.log(strings.length)*(strings.length) + strings.length) + " Operations</pre></b></li>";
+                    html += "<li>Actual <b><pre>"+ Sorter.lastOpsValue + " Operations (" + Sorter.lastSetupOpsValue + " to setup parameters)></b></li>";
+                    html += "<li>Upper Bound <b><pre>O(N^2) = " + (strings.length * strings.length) + " Operations </pre></b></li>";
+                    html += "<li><pre>strings in order</pre>";
+                    if(strings.length > 20){
+                        html += "<pre><p>" + strings + "</p></pre>";
+                    }
+                    else{
+                        html+="<pre><ol><li>"+strings.join('</li><li>')+"</li></ol></pre>";
+                    }
+                    html += "</li>";
+                    html += "</ul>";
+                    html += "</div>";
+                    html+="</section>"
+                }
+                
+                $("#results").html( html);
+            }
+            
+            /**
+             * Handle the form action
+             */
+            function validateForm(){
+                
+                var sortInput = document.forms["myForm"]["toSort"].value;
+                if(sortInput == null || sortInput == ""){
+                    sortInput = 10;
+                }
+                
+                var sortStrings;
+                if(isNaN(parseInt(sortInput))){
+	                // gut any spaces and lower it
+	                sortStrings = sortInput.toLowerCase().replace(" ","").split(",");
+                }
+                else
+                {
+                    sortStrings = generateSortValue(sortInput, 10);
+                }
+                
+                var arbLexInput = document.forms["myForm"]["userArbLex"].value;
+                var arbString = arbLexInput ? arbLexInput.toLowerCase() :  "zyba";
+                s1 = sortStrings;
+                doSort([s1], [arbString]);
+            }
+            
+            
+			$(document).ready(function () {
+			    $('#myForm').on('submit', function(e) {
+			        
+			        // keep the page from refreshing or any actions from running
+			        e.preventDefault();
+			        
+			        validateForm();
+			    });
+			});
+			
+        });
+	})(jQuery);
 </script>
 </head>
 <body>
-
+<main>
+    <h1>Testing Suite</h1>
+    <p>This test is based on the lower-case alphabet (a-z), non-numeric characters only<br/> 
+     Your lexical ordering will be transposed over the alphabet so it fits in with sorting all characters (a bonus).
+     This sort performs more optimal as the number of items to sort gets larger. It stays toward the lower bound 'N(logN)' as N gets huge.
+     </p>
+	<section>
+		<form id="myForm">
+		    <footer> 
+		        <p>Sort Options</p>
+		        <ul>
+				    <li><pre>[a-z,s+]</pre> only (if empty, a random sequence is generated of arbitrary (huge) size for performance)</li>
+				    <li>a number <pre>0-N (up to 2^32)</pre> of random strings to generate</li>
+		        </ul>
+		        <p><b>Example</b></p>
+		        <ul>
+			        <li><pre>1000 - creates 1000 random length strings and sorts on arbitrary sort order value</pre></li>
+			        <li><pre>abc,cba,acb - sorts the specified string sequence 'abc,cba,acb' on arbitrary sort order value</pre></li>
+		        </ul>
+		        
+			    <p>Sort:</p>
+		         <input type="text" name="toSort">
+		    </footer>
+		    <p>Arbitrary Sort Order</p>
+		    <input type="text" name="userArbLex">
+   		    <p>Options: Can be any sequence of unique characters in the alphabet <pre>'a-z'</pre></p>
+		    
+		    <input type="submit" value="Sort Away!">
+	    </form>
+	    <div id="results"></div>
+	</section>
+</main>
 </body>
 </html>
